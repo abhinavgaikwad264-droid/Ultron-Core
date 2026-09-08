@@ -1,7 +1,6 @@
 package com.ultron.agent;
 
 interface IUserService {
-    String executeCommand(String command);
+    String executeCommand(String command) = 1;
     void destroy() = 16777114;
 }
-
