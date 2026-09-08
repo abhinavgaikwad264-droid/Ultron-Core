@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import moe.shizuku.Shizuku
+import rikka.shizuku.Shizuku
 import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
