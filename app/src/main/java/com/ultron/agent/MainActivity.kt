@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         actionValidator = ActionValidator()
 
         // Astra API Client initialized here (using the build config key)
-        apiClient = ApiClient(BuildConfig.API_KEY)
+        apiClient = ApiClient("dummy-key") 
 
         requestPermissionsAndShizuku()
 
