@@ -58,8 +58,7 @@ class MainActivity : AppCompatActivity() {
         uiStateManager = UIStateManager(shizukuManager)
         actionValidator = ActionValidator()
 
-        // Astra API Client initialized here (using the build config key)
-        apiClient = ApiClient("dummy-key") 
+        apiClient = ApiClient("dummy-key")
 
         requestPermissionsAndShizuku()
 
@@ -120,14 +119,11 @@ class MainActivity : AppCompatActivity() {
     private fun processCommand(text: String) {
         lifecycleScope.launch {
             try {
-                // 1. Dump UI (The Eye)
                 val uiTargets = uiStateManager.dumpUI()
                 val uiJson = com.google.gson.Gson().toJson(uiTargets)
 
-                // 2. Send to Astra (The Brain)
                 val action = apiClient.sendRequest(text, uiJson)
 
-                // 3. Match Target & Validate Sandbox
                 val target = uiTargets.find {
                     it.text == action.targetIdentifier ||
                     it.contentDesc == action.targetIdentifier ||
@@ -141,7 +137,6 @@ class MainActivity : AppCompatActivity() {
                     return@launch
                 }
 
-                // 4. Execute Physical Command (The Muscle)
                 executeAction(action, target)
             } catch (e: Exception) {
                 statusText.text = "Astra API Error: ${e.message}"
@@ -181,4 +176,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
