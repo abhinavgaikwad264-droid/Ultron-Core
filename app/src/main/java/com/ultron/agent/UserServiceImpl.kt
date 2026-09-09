@@ -35,7 +35,7 @@ class UserServiceImpl : Service() {
         override fun destroy() {
             Log.w(TAG, "Destroy called – killing Shizuku daemon.")
             // Completely kill the privileged process when Emergency Stop is hit
-            Shizuku.destroy()
+            
             stopSelf()
             System.exit(0) 
         }
