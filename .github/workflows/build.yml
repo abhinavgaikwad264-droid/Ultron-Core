@@ -23,9 +23,10 @@ jobs:
       with:
         gradle-version: '8.5'
 
-    - name: Inject Secure API Key
+    - name: Inject API Key and Nuke Typo
       run: |
         sed -i 's/"dummy-key"/"${{ secrets.ULTRON_API_KEY }}"/g' app/src/main/java/com/ultron/agent/MainActivity.kt
+        sed -i 's/!I.checkSelfPermission()/!Shizuku.checkSelfPermission()/g' app/src/main/java/com/ultron/agent/MainActivity.kt
 
     - name: Build Debug APK
       run: gradle :app:assembleDebug
