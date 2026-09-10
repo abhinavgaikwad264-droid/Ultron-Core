@@ -38,7 +38,7 @@ class ApiClient(private val apiKey: String) {
         )
 
         val request = Request.Builder()
-            .url("https://openrouter.ai/api/v1/chat/completions](https://openrouter.ai/api/v1/chat/completions" )
+            .url("https://openrouter.ai/api/v1/chat/completions")
             .post(gson.toJson(requestBody).toRequestBody("application/json".toMediaType()))
             .addHeader("Authorization", "Bearer $apiKey")
             .build()
@@ -56,4 +56,3 @@ class ApiClient(private val apiKey: String) {
         )
     }
 }
-
