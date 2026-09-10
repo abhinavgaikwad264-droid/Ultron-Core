@@ -23,7 +23,7 @@ class ApiClient(private val apiKey: String) {
 
     suspend fun sendRequest(transcribedText: String, uiJson: String): Action {
         val requestBody = mapOf(
-            "model" to "gpt-6-astra",
+            "model" to "deepseek/deepseek-r1:free",
             "messages" to listOf(
                 mapOf(
                     "role" to "system",
@@ -38,7 +38,7 @@ class ApiClient(private val apiKey: String) {
         )
 
         val request = Request.Builder()
-            .url("https://api.openai.com/v1/chat/completions")
+            .url("https://openrouter.ai/api/v1/chat/completions](https://openrouter.ai/api/v1/chat/completions" )
             .post(gson.toJson(requestBody).toRequestBody("application/json".toMediaType()))
             .addHeader("Authorization", "Bearer $apiKey")
             .build()
