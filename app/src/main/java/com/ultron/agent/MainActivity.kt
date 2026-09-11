@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Shizuku.addRequestPermissionResultListener(permissionListener)
-        registerReceiver(transcriptionReceiver, IntentFilter(Constants.TRANSCRIPTION_ACTION))
+        ContextCompat.registerReceiver(this, transcriptionReceiver, IntentFilter(Constants.TRANSCRIPTION_ACTION), ContextCompat.RECEIVER_NOT_EXPORTED)
     }
 
     override fun onPause() {
