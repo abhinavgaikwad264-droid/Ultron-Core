@@ -26,7 +26,7 @@ jobs:
     - name: Inject API Key and Nuke Typo
       run: |
         sed -i 's/"dummy-key"/"${{ secrets.ULTRON_API_KEY }}"/g' app/src/main/java/com/ultron/agent/MainActivity.kt
-        sed -i 's/!I.checkSelfPermission()/!Shizuku.checkSelfPermission()/g' app/src/main/java/com/ultron/agent/MainActivity.kt
+        sed -i 's/.*else if.*checkSelfPermission.*/        } else if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {/g' app/src/main/java/com/ultron/agent/MainActivity.kt
 
     - name: Build Debug APK
       run: gradle :app:assembleDebug
